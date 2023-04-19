@@ -2,14 +2,15 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import TopBar from "../components/common/TopBar";
 import HomePage from "../components/HomePage";
 import Cart from "../components/cart/Cart";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import Checkout from "../components/cart/Checkout";
 
 export function Router() {
   const [items, setItems] = useState([]);
   console.log("Items in router", items);
   return (
     <BrowserRouter>
-      <TopBar />
+      <TopBar items={items} />
       <Routes>
         <Route
           path='/'
@@ -19,8 +20,10 @@ export function Router() {
           path='/cart'
           element={<Cart items={items} setItems={setItems} />}
         />
-        {/* <Route path='/updateStock' element={<UpdateStockQuantity />} />
-        <Route path='/stockReport' element={<StockReport />} /> */}
+        <Route
+          path='/checkout'
+          element={<Checkout items={items} setItems={setItems} />}
+        />
       </Routes>
     </BrowserRouter>
   );
