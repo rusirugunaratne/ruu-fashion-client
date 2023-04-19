@@ -9,7 +9,7 @@ function HomePage({ items, setItems }) {
     if (items.findIndex((cartItem) => cartItem._id === item._id) === -1) {
       selectedItems.push(item);
       console.log("Selected rows:", selectedItems);
-      setItems(selectedItems);
+      setItems((i) => [...selectedItems]);
     }
   };
 

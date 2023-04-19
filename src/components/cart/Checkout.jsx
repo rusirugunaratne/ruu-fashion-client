@@ -65,7 +65,9 @@ function Checkout({ items, setItems }) {
       >
         <Typography variant='h8'>{`Shipping Number : ${generateUniqueCode()}`}</Typography>
         <MaterialReactTable columns={columns} data={items} />
-        <Typography variant='h4'>{`Sub total (LKR)  : ${getTotalPrice()}`}</Typography>
+        <Typography variant='h4'>{`Sub total (LKR)  : ${getTotalPrice().toFixed(
+          2
+        )}`}</Typography>
         <Button
           onClick={() => completeOrder()}
           variant='contained'
